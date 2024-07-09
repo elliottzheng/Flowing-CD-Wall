@@ -3,7 +3,7 @@
 ## 项目描述
 本项目能够从指定播放列表生成一个html页面，该页面会显示一个流动的CD墙，CD墙中的CD会不断的流动，配合[Lively](https://www.rocksdanister.com/lively/)可以将此页面设置为桌面壁纸。
 
-![效果展示](images/preview.jpg)
+![效果展示](images/preview.gif)
 
 ## 配置
 ```bash
