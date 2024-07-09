@@ -1,0 +1,154 @@
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700,800&display=swap'); */
+/* @import './google-fonts.css'; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: calc(100vh - 55px);
+  background-color: #222;
+  color: #fff;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;  
+  overflow: hidden;
+}
+
+.scroll {
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+  /* mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent); */
+  /* -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent); */
+}
+
+.scroll > div span {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px 10px;
+  background-color: #333;
+  border-radius: 5px;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.scroll > div span:hover {
+  background-color: #4caf50;
+}
+
+.img-box img {
+  /* max-width: ; */
+  max-height: calc(20vh - 12px);
+  filter: grayscale(0);
+  
+  cursor: pointer;
+  transition: filter 0.5s;
+}
+.img-box img:hover {
+  filter: grayscale(0);
+}
+
+a {
+  height: calc(20vh - 12px);
+}
+
+.scroll > div {
+  white-space: nowrap;
+  animation: animate var(--t) linear infinite;
+  animation-delay: calc(var(--t) * -1);
+}
+@keyframes animate {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll > div:nth-child(2) {
+  animation: animate2 var(--t) linear infinite;
+  animation-delay: calc(var(--t) / -2);
+}
+@keyframes animate2 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+/* .scroll:hover > div {
+  animation-play-state: paused;
+} */
+
+
+
+@media screen and (max-width: 1080px) {
+  /* .scroll {
+    width: 100vw;
+  } */
+
+  .scroll > div span {
+    background-color: #4caf50;
+  }
+
+  .img-box img {
+    /* width: 66vw; */
+    filter: grayscale(0);
+  }
+}
+
+
+
+.demo1 {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.Scan {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 200%;
+  height: 100px;
+
+  /* linear-gradient() make a light */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0)
+  );
+
+  /* rotate light */
+  transform-origin: center center;
+  transform: translate(-100%, 50%) rotate(-60deg);
+
+  /* keyframes animation */
+  animation: ScanLights 3s linear 1s infinite;
+}
+
+@keyframes ScanLights {
+  0% {
+      transform: translate(-100%, 50%) rotate(-60deg);
+  }
+  100% {
+      transform: translate(100%, 50%) rotate(-60deg);
+  }
+}
