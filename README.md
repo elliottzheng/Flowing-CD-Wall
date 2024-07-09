@@ -1,7 +1,7 @@
-# 创建流动的CD墙作为壁纸
+# 从播放列表创建流动的CD墙作为动态壁纸
 
 ## 项目描述
-本项目能够从指定QQ音乐播放列表生成一个html页面，该页面会显示一个流动的CD墙，CD墙中的CD会不断的流动，配合[Lively](https://www.rocksdanister.com/lively/)可以将此页面设置为桌面壁纸。
+本项目能够从指定播放列表生成一个html页面，该页面会显示一个流动的CD墙，CD墙中的CD会不断的流动，配合[Lively](https://www.rocksdanister.com/lively/)可以将此页面设置为桌面壁纸。
 
 ![效果展示](images/preview.jpg)
 
@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 
 ## 运行
-### 生成封面文件夹与封面列表
+### 步骤1：生成封面文件夹与封面列表
 我们需要先生成一个封面文件夹，该文件夹中包含了所有专辑封面图片。然后生成一个封面列表文件，该文件中包含了封面文件夹中所有封面的文件名。
 可以通过两种方式生成封面文件夹与封面列表文件，一种是从QQ音乐播放列表构建，另一种是从网易云音乐播放列表构建，下面分别介绍。
 
@@ -25,12 +25,14 @@ python download_qqmusic_playlist.py --playlist_id 8081238754 --cover_dir covers
 
 下载QQ音乐播放列表`8081238754`中所有歌曲的专辑封面到`covers`文件夹中，`--cover_dir`参数指定封面文件夹。
 
+注意：程序运行中会提示让你登录QQ音乐，这是因为QQ音乐的反爬虫机制，你需要在弹出来的浏览器中登录QQ音乐，方可继续下载，不过这短期内只需要登录一次，后续再次运行程序时就不需要登录了。
+
 同时会生成一个`covers.json`文件，该文件中包含了封面文件夹中所有封面的文件名。这是为了方便后续生成CD墙HTML。
 
 #### 从网易云音乐播放列表构建（TODO）
 
 
-### 生成CD墙 HTML
+### 步骤2：生成CD墙 HTML
 
 ```bash
 python generate_cd_wall.py --cover_dir covers --output_dir html --cover_list covers.json
