@@ -21,6 +21,7 @@ pip install -r requirements.txt
 
 一般在QQ音乐网页版中，点击播放列表，然后复制浏览器地址栏中的地址即可得到播放列表ID。
 找到你的QQ音乐播放列表ID，例如`https://y.qq.com/n/yqq/playlist/8081238754.html`中的`8081238754`就是播放列表ID。
+
 ```bash
 python download_qqmusic_playlist.py --playlist_id 8081238754 --cover_dir covers
 ```
@@ -31,8 +32,15 @@ python download_qqmusic_playlist.py --playlist_id 8081238754 --cover_dir covers
 
 同时会生成一个`covers.json`文件，该文件中包含了封面文件夹中所有封面的文件名。这是为了方便后续生成CD墙HTML。
 
-#### 从网易云音乐播放列表构建（TODO）
+#### 从网易云音乐歌单构建
 
+从网易云中分享歌单，点击复制链接，`playlist?id=`后的数字即为歌单ID，例如 `https://music.163.com/playlist?id=426712570` 中的 `426712570`。
+
+```bash
+python download_netease_music_playlist.py --playlist_id 426712570 --cover_dir covers
+```
+
+下载网易云音乐歌单`426712570`中的所有歌曲的专辑封面到`covers`文件夹中，`--cover_dir`参数指定封面文件夹。
 
 ### 步骤2：生成CD墙 HTML
 
